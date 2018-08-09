@@ -1,0 +1,20 @@
+{
+  "name": "pp-prisma-api",
+  "version": "1.0.0",
+  "description": "Graphql api using Prisma for PeoplesProtest application.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "author": "Empower Protest",
+  "license": "ISC",
+  "dependencies": {
+    "graphql-yoga": "^1.14.12",
+    "prisma-binding": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  }
+}

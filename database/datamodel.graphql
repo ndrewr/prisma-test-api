@@ -1,0 +1,52 @@
+type User {
+  id: ID! @unique
+  name: String! @default(value: "Anonymous")
+  causes: [Cause]
+  orgs: [ID!]
+  events: [ID!]
+}
+
+type Event {
+  attendees: Int @default(value: 0)
+  cause: Cause
+  date: DateTime
+  description: String @default(value: "Event details coming soon.")
+  image_url: String
+  event_url: String
+  hostid: ID!
+  id: ID! @unique
+  location: Loc
+  name: String!
+}
+
+type Org {
+  id: ID! @unique
+  logo: String
+  mission: String
+  name: String!
+  homepage: String
+  cause: Cause!
+  # location: ???
+  # followers: [User] ???
+}
+
+type Loc {
+  lat: Float
+  lon: Float
+}
+
+enum Cause {
+  LGBTQ
+  WOMENSRIGHTS
+  PROLIFE
+  PROCHOICE
+  RACIALJUSTICE
+  CLIMATECHANGE
+  GUNCONTROL
+  ENVIRONMENT
+  GUNRIGHTS
+  IMMIGRATIONRIGHTS
+  BORDERCONTROL
+  MARIJUANALAW
+}
+

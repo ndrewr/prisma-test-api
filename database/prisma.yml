@@ -1,0 +1,6 @@
+endpoint: https://us1.prisma.sh/people-protest/protest-api/dev
+datamodel: datamodel.graphql
+hooks:
+  post-deploy:
+    - graphql get-schema
+
