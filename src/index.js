@@ -37,7 +37,13 @@ const resolvers = {
         hostid: args.hostid,
         image_url: args.image_url,
         event_url: args.event_url,
-        location: args.location,
+        // nested mutation; underlying EventCreateInput is looking for a 
+        // "nested mutation argument", prolly "create" to also create the 
+        // Loc data object.
+        // location: args.location,
+        location: {
+          create: args.location,
+        },
       }
 
       return ctx.db.mutation.createEvent(
@@ -51,7 +57,12 @@ const resolvers = {
       
       const new_user = {
         name: args.name,
-        causes: args.causes,
+        // when creating List of scalars, use 'set' field...
+        // docs-beta.prisma.io/1.13/use-prisma-api/api-reference/mutations-qwe2/#creating-nodes
+        // causes: args.causes,
+        causes: {
+          set: args.causes,
+        }
       }
 
       return ctx.db.mutation.createUser(
